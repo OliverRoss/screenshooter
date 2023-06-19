@@ -4,7 +4,7 @@ TEXT_FILE="/tmp/ocr.txt"
 IMAGE_FILE="/tmp/ocr.png"
 
 notify(){
-	notify-send -i "$HOME"/.dotfiles/icons/ocr.png "Screenshot" "$1"
+	notify-send "Screenshot" "$1"
 }
 
 check_deps(){
