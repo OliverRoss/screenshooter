@@ -111,8 +111,8 @@ main(){
 			;;
 	esac
 
-	rm "$TEXT_FILE"
-	rm "$IMAGE_FILE"
+	rm "$TEXT_FILE" 2>/dev/null
+	rm "$IMAGE_FILE" 2>/dev/null
 }
 
 main
