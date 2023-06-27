@@ -11,3 +11,4 @@ This screenshot tool crops a selection of the screen and offers options what to 
 * [tesseract](https://github.com/tesseract-ocr/tesseract)
 * [translate-shell](https://github.com/soimort/translate-shell)
 * [Nerdfont](https://github.com/ryanoasis/nerd-fonts) for pretty icons (or delete them from the source)
+* [zbar](https://github.com/mchehab/zbar)

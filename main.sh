@@ -76,6 +76,12 @@ mode_translate(){
 	notify "$(cat $TEXT_FILE):\n$TRANS"
 }
 
+mode_qr(){
+	QR_CONTENT=$(zbarimg "$IMAGE_FILE" 2>/dev/null | head -n1 | cut -d':' -f2-)
+	echo "$QR_CONTENT" | xclip -selection clipboard
+	notify "$QR_CONTENT\nCopied to clipboard"
+}
+
 main(){
 	
 	check_deps
@@ -83,7 +89,7 @@ main(){
 	# Take screenshot by selecting the area, exit if aborted
 	maim -s "$IMAGE_FILE" || exit 1
 
-	MODE=$(printf " Copy image to clipboard\n Save image to file\n󰦨 Text recognition\n Google scholar search\n󰗊 Translate to german" | rofi -dmenu -p "Mode ")
+	MODE=$(printf " Copy image to clipboard\n Save image to file\n󰦨 Text recognition\n Google scholar search\n󰗊 Translate to german\n Scan QR code" | rofi -dmenu -p "Mode ")
 	case $MODE in
 		" Copy image to clipboard")
 			mode_copy
@@ -96,6 +102,9 @@ main(){
 			;;
 		" Google scholar search")
 			mode_scholar
+			;;
+		" Scan QR code")
+			mode_qr
 			;;
 		"󰗊 Translate to german")
 			mode_translate
